@@ -10,7 +10,7 @@ This space is where I keep notes, experiments, and projects as I learn.
 - OT/IIoT and PLC/OPC UA fundamentals
 
 ## Projects (in progress)
-- **Leviathan (notes & tooling)** — simple scripts and docs to understand PLC/SCADA faults
+- **PLC Python Integrations (notes & tooling)** — simple scripts and docs to understand PLC/SCADA faults
 - **Dog & Cat Seg** — a tiny FastAPI service that serves a trained segmentation model
 - **OPC UA Monitors** — experiments for reading tags and basic health checks
 
@@ -22,8 +22,8 @@ This space is where I keep notes, experiments, and projects as I learn.
 - Issues/README first, small commits, lots of notes
 
 ## Around the web
-- Portfolio: (https://kyawminthu20.github.io/portfolio)
+- Portfolio: https://kyawminthu20.github.io/portfolio
 - Email: kyaw@kmtkn.me
-- LinkedIn: [<your_link>](https://www.linkedin.com/in/kyawminthu/)
+- LinkedIn: https://www.linkedin.com/in/kyawminthu/
 
 > If you spot a mistake or have a suggestion, I’m happy to learn—please open an issue.
