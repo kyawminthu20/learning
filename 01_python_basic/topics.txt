@@ -1,0 +1,150 @@
+Basic Python Syntax and Concepts
+
+Variables and Data Types
+
+Integers, floats, strings, booleans
+
+Type casting
+
+Operators
+
+Arithmetic (+, -, *, /)
+
+Comparison (==, !=, <, >, etc.)
+
+Logical (and, or, not)
+
+Assignment (=, +=, etc.)
+
+Control Flow
+
+if, elif, else statements
+
+Boolean logic and nesting
+
+Loops
+
+for loops
+
+while loops
+
+break and continue
+
+Functions
+
+Defining functions (def)
+
+Return values
+
+Parameters and arguments
+
+Scope (local vs. global)
+
+Data Structures
+
+Lists: indexing, slicing, appending, looping
+
+Tuples: immutability, unpacking
+
+Dictionaries: keys and values, .get(), .items()
+
+Sets: uniqueness, basic operations
+
+String Manipulation
+
+Concatenation
+
+String methods (.lower(), .split(), etc.)
+
+f-strings and formatting
+
+Input/Output
+
+input() function
+
+print() formatting
+
+Reading from and writing to files
+
+Error Handling
+
+try/except
+
+Handling exceptions gracefully
+
+List Comprehensions
+
+A compact way to create lists
+
+PLC Data Parsing
+
+You split the raw string into entries, then into fields.
+
+This is exactly how protocols like OPC-UA or custom PLC strings are parsed.
+
+Complexity = O(n) (efficient).
+
+Later, if you parse L5X (which is XML), you’ll probably switch to an XML parser, but the idea is the same.
+
+IP Address Validation
+
+You first check the structure (xxx.xxx.xxx.xxx).
+
+Then you check octet ranges (0–255).
+
+That’s the correct way to validate!
+
+Industrial systems (PLC networks) often reject invalid IPs silently, so this check is gold.
+
+Extracting Numbers
+
+Your regex \d+\.?\d* finds both integers and decimals.
+
+Converting to floats lets you compute statistics.
+
+This is great for sanity checks on sensor values before passing them to ML models.
+
+Tag Cleaning
+
+Removing whitespace, special chars, converting to uppercase is essential.
+
+Real PLC tag names often contain vendor-specific weirdness (pump#02@status).
+
+Normalization ensures consistency (good for both databases and ML pipelines).
+
+Sensor Reading Validation
+
+Your regex enforces strict structure:
+
+SENSOR_ID : VALUE : UNIT : TIMESTAMP
+
+
+Example: TEMP_001:23.5:C:2024-03-15T14:30:00
+
+That’s basically schema validation — which is what industrial protocols like MQTT or OPC-UA do behind the scenes.
+
+⚙️ How this scales to PLC/L5X projects
+
+The L5X file is XML (from Rockwell/Allen-Bradley Logix controllers).
+
+Instead of splitting strings manually, you’ll parse it with Python’s xml.etree.ElementTree or lxml.
+
+Each <Tag> element has attributes (Name, DataType, etc.), which you can clean/validate the same way you did here.
+
+Example workflow:
+
+Extract <Tag> from L5X → raw tag name
+
+Clean the tag (re.sub) → normalized name
+
+Validate values (your regex logic)
+
+Store in structured format (e.g., JSON or DataFrame)
+
+Key takeaway
+
+What you’ve coded is not just an exercise — it’s a real-world mini data pipeline.
+
+The same techniques (split, regex, normalization, validation) are exactly what you’ll apply to parse L5X tags and prepare PLC data for ML.
+
+Next logical step: move from string parsing → structured parsing of XML (L5X).
